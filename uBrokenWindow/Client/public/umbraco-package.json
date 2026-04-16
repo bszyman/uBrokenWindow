@@ -1,0 +1,14 @@
+{
+  "id": "uBrokenWindow",
+  "name": "uBrokenWindow",
+  "version": "0.0.0",
+  "allowTelemetry": true,
+  "extensions": [
+    {
+      "name": "uBroken Window Bundle",
+      "alias": "uBrokenWindow.Bundle",
+      "type": "bundle",
+      "js": "/App_Plugins/uBrokenWindow/u-broken-window.js"
+    }
+  ]
+}

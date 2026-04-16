@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>uBrokenWindow</PackageId>
+    <Product>uBrokenWindow</Product>
+    <Title>uBrokenWindow</Title>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyName>uBrokenWindow</AssemblyName>
+    <Version>1.0.0</Version>
+    <Authors>Ben Szymanski</Authors>
+    <Description>
+      Generate a new backoffice user account on application startup. Use with care!
+    </Description>
+    <Copyright>Copyright © 2026</Copyright>
+    <PackageProjectUrl>https://github.com/bszyman/uBrokenWindow</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>umbraco-marketplace</PackageTags>
+    <PackageReleaseNotes>
+      Initial release.
+    </PackageReleaseNotes>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+
+  <!-- Central package management - no versions -->
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms.Api.Common" />
+    <PackageReference Include="Umbraco.Cms.Api.Management" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <!-- Don't include the client folder as part of packaging nuget build -->
+    <Content Remove="Client\**" />
+
+    <!-- However make the Umbraco-package.json included for dotnet pack or nuget package and visible to the solution -->
+    <None Include="Client\public\umbraco-package.json" Pack="false" />
+    
+    <None Include="LICENSE" Pack="true" PackagePath="" />
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>
